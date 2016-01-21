@@ -15,6 +15,7 @@
 		04A4673D1C507A53000D5EA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A4673B1C507A53000D5EA0 /* LaunchScreen.storyboard */; };
 		04A467481C507A53000D5EA0 /* CaptureTVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A467471C507A53000D5EA0 /* CaptureTVTests.m */; };
 		04A467531C507A53000D5EA0 /* CaptureTVUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A467521C507A53000D5EA0 /* CaptureTVUITests.m */; };
+		04A467611C507C24000D5EA0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A467601C507C24000D5EA0 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		04A4674E1C507A53000D5EA0 /* CaptureTVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaptureTVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A467521C507A53000D5EA0 /* CaptureTVUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptureTVUITests.m; sourceTree = "<group>"; };
 		04A467541C507A53000D5EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A467601C507C24000D5EA0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A467611C507C24000D5EA0 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 		04A467211C507A53000D5EA0 = {
 			isa = PBXGroup;
 			children = (
+				04A467601C507C24000D5EA0 /* AVFoundation.framework */,
 				04A4672C1C507A53000D5EA0 /* CaptureTV */,
 				04A467461C507A53000D5EA0 /* CaptureTVTests */,
 				04A467511C507A53000D5EA0 /* CaptureTVUITests */,
