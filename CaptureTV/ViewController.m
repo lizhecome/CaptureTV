@@ -7,15 +7,18 @@
 //
 
 #import "ViewController.h"
+#import <AFNetworking.h>
 
 @interface ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>
 @property (nonatomic, strong)AVCaptureSession * session;
+@property (nonatomic)BOOL locked;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.locked = NO;
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)ShotPressed:(id)sender
@@ -59,7 +62,26 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     if(image != nil)
     {
-        NSLog(@"get");
+        if(self.locked)
+        {
+            return;
+        }
+        else
+        {
+            AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+            session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/html",@"text/json",@"text/javascript", nil];
+            [session POST:@"http://192.168.1.137:4212/index/searcher" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                [formData appendPartWithFormData:UIImageJPEGRepresentation(image, 0.01) name:@"image"];
+            } progress:^(NSProgress * _Nonnull uploadProgress) {
+                //
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSLog(@"成功");
+                self.locked = NO;
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"失败");
+            }];
+            self.locked = YES;
+        }
     }
     
     
